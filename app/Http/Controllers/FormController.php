@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Item;
 use App\ItemContent;
+use App\ItemDirection;
 
 class FormController extends Controller
 {
@@ -17,14 +18,19 @@ class FormController extends Controller
     public function index()
     {
         $items = Item::all();
+      
         $data = [];
         $content = [];
-        foreach($items as $item){
+        foreach($items as $i => $item){
             $singleData = [];
-            $singleData = ['item_name'=>$item->header, 'item_content'=>$item->ItemContents];
+            foreach($item->ItemContents as $content){
+                    $content->options = json_decode($content->options);
+            }
+            $singleData = ['item_id'=>$item->id, 'item_name'=>$item->header, 'item_content'=>$item->ItemContents];
+            
             $data[] = $singleData;
         };
-        return response()->json($data);
+        return response($data);
     }
 
     /**
@@ -35,7 +41,7 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -56,9 +62,12 @@ class FormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $row = ItemDirection::find(1);
+        $row->update([
+            'value'=> $request->dire
+        ]);
     }
 
     /**
@@ -69,6 +78,6 @@ class FormController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }

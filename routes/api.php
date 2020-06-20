@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\Cors;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('form', 'FormController@index');
+Route::get('/form', 'FormController@index');
+Route::put('/form/direction', 'FormController@update')->middleware('Cors');
