@@ -20,8 +20,4 @@ class Cors
         ->header('Access-Control-Allow-Methods', 'PUT, POST, DELETE, GET')
         ->header('Access-Control-Allow-Headers', 'Accept, Authorization, Content-Type');
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 21 june home

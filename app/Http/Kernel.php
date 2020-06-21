@@ -67,8 +67,4 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'Cors' => \App\Http\Middleware\Cors::class,
     ];
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 21 june home

@@ -21,14 +21,6 @@ class FormController extends Controller
       
         $data = [];
         $content = [];
-<<<<<<< HEAD
-        foreach($items as $i => $item){
-            $singleData = [];
-            foreach($item->ItemContents as $content){
-                    $content->options = json_decode($content->options);
-            }
-            $singleData = ['item_id'=>$item->id, 'item_name'=>$item->header, 'item_content'=>$item->ItemContents];
-=======
         $ordersObj = ItemDirection::find(1);
 
         
@@ -42,7 +34,6 @@ class FormController extends Controller
                     $content->options = json_decode($content->options);
             }
             $singleData = ['id'=>$item->id, 'item_id'=>$items[$key]->id, 'item_name'=>$items[$key]->header, 'item_content'=>$items[$key]->ItemContents];
->>>>>>> 21 june home
             
             $data[] = $singleData;
         };
@@ -96,8 +87,4 @@ class FormController extends Controller
     {
         
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 21 june home
